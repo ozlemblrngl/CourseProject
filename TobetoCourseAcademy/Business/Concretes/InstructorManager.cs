@@ -1,4 +1,5 @@
-﻿using DataAccess.Concretes;
+﻿using Business.Abstracts;
+using DataAccess.Concretes;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,21 @@ using System.Threading.Tasks;
 
 namespace Business.Concretes
 {
-    public class InstructorManager
+    public class InstructorManager:IInstructorService
     {
         public void Add(Instructor instructor)
         {
-            AdoNetInstructorDal adoNetInstructor = new AdoNetInstructorDal();
-            adoNetInstructor.Add(instructor);
+            
+        }
+
+        public List<Instructor> GetByInstructorId(int id)
+        {
+            return null;
+        }
+
+        List<Instructor> IInstructorService.GetAll()
+        {
+            return null;
         }
     }
 }
