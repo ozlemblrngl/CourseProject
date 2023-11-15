@@ -13,7 +13,7 @@ namespace DataAccess.Concretes.Entity_Framework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=TobetoCourseAcademy;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-N9UK4PN;Database=TobetoCourseAcademy;Trusted_Connection=true;TrustServerCertificate=true");
         }
 
         public DbSet<Course> Courses { get; set; }

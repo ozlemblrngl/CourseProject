@@ -5,7 +5,7 @@
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class mig1 : Migration
+    public partial class initialcreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,7 +29,6 @@ namespace DataAccess.Migrations
                 {
                     InstructorId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CourseId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -45,7 +44,6 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     InstructorId = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    InstructorId1 = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -61,8 +59,8 @@ namespace DataAccess.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Courses_Instructors_InstructorId1",
-                        column: x => x.InstructorId1,
+                        name: "FK_Courses_Instructors_InstructorId",
+                        column: x => x.InstructorId,
                         principalTable: "Instructors",
                         principalColumn: "InstructorId",
                         onDelete: ReferentialAction.Cascade);
@@ -74,9 +72,9 @@ namespace DataAccess.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Courses_InstructorId1",
+                name: "IX_Courses_InstructorId",
                 table: "Courses",
-                column: "InstructorId1");
+                column: "InstructorId");
         }
 
         /// <inheritdoc />

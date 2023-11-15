@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(TobetoCourseAcademyContext))]
-    [Migration("20231113113909_mig1")]
-    partial class mig1
+    [Migration("20231115144503_initialcreate")]
+    partial class initialcreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,9 +63,6 @@ namespace DataAccess.Migrations
                     b.Property<int>("InstructorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("InstructorId1")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -77,7 +74,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("InstructorId1");
+                    b.HasIndex("InstructorId");
 
                     b.ToTable("Courses");
                 });
@@ -89,9 +86,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InstructorId"));
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -112,7 +106,7 @@ namespace DataAccess.Migrations
 
                     b.HasOne("Entities.Concretes.Instructor", "Instructor")
                         .WithMany()
-                        .HasForeignKey("InstructorId1")
+                        .HasForeignKey("InstructorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
