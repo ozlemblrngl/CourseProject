@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstracts;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstracts;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concretes.Entity_Framework
 {
-    public class EfInstructorDal : IInstructorDal
+    public class EfInstructorDal : EfEntityRepositoryBase<Instructor, TobetoCourseAcademyContext>,IInstructorDal
     {
         
-     
+ 
         public void Add(Instructor entity)
         {
             throw new NotImplementedException();

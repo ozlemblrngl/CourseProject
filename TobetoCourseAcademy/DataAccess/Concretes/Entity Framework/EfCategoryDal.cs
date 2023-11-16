@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstracts;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstracts;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -9,17 +10,14 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concretes.Entity_Framework
 {
-    public class EfCategoryDal : ICategoryDal
+    public class EfCategoryDal : EfEntityRepositoryBase<Category, TobetoCourseAcademyContext>, ICategoryDal
     {
         
-
-      
         public void Add(Category entity)
         {
             throw new NotImplementedException();
         }
 
-     
 
         public void Delete(Category entity)
         {
@@ -35,8 +33,6 @@ namespace DataAccess.Concretes.Entity_Framework
         {
             throw new NotImplementedException();
         }
-
-       
 
         public void Update(Category entity)
         {

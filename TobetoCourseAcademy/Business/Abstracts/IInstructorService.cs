@@ -11,5 +11,7 @@ namespace Business.Abstracts
     {
         List<Instructor> GetAll();
         List<Instructor> GetByInstructorId(int id);
+        public void Add();
+        
     }
 }

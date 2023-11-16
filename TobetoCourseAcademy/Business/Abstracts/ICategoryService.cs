@@ -9,7 +9,9 @@ namespace Business.Abstracts
 {
     public interface ICategoryService
     {
-        public void GetAll();
-        public void GetByCategoryId(int id);
+        public List<Category> GetAll();
+        public List<Category> GetByCategoryId(int id);
+
+        public void Add();
     }
 }

@@ -33,5 +33,10 @@ namespace Business.Concretes
         {
             return _courseDal.GetAll();
         }
+
+        public void Add()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
