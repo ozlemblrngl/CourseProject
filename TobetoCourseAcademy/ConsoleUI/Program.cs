@@ -9,16 +9,20 @@ class Program
 {
     static void Main(string[] args)
     {
+         CategoryTest();
 
+        // CourseTest();
+
+    }
+
+    private static void CategoryTest()
+    {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
 
-        foreach( var category in categoryManager.GetAll())
+        foreach (var category in categoryManager.GetAll())
         {
             Console.WriteLine(category.Name);
         }
-
-        CourseTest();
-
     }
 
     private static void CourseTest()
