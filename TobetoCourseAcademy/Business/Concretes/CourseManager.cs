@@ -1,8 +1,11 @@
 ﻿using Business.Abstracts;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
 using DataAccess.Concretes.Entity_Framework;
 using Entities.Concretes;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,24 +22,36 @@ namespace Business.Concretes
             _courseDal = courseDal;
         }
  
-        public void Add(Course course)
+       
+        public IDataResult<List<Course>> GetByCourseId(int id)
         {
-            
+            return new SuccessDataResult<List<Course>>(_courseDal.GetAll(c => c.Id == id));
         }
 
-        public List<Course> GetByCourseId(int id)
+        public IDataResult<List<Course>> GetAll()
         {
-            return _courseDal.GetAll(c => c.Id == id);
+            if (DateTime.Now.Hour == 18)
+            {
+                return new ErrorDataResult<List<Course>>(Messages.MaintenanceTime);
+            }
+            return new SuccessDataResult<List<Course>>(_courseDal.GetAll(),Messages.CourseListed);
         }
 
-        public List<Course> GetAll()
+
+        public IDataResult<List<CourseDetailDto>> GetCourseDetails()
         {
-            return _courseDal.GetAll();
+            return new SuccessDataResult<List<CourseDetailDto>>(_courseDal.GetCourseDetails());
         }
 
-        public void Add()
+        public IResult Add(Course course)
         {
-            throw new NotImplementedException();
+            if (course.Name.Length<2)
+            {
+                return new ErrorResult(Messages.CourseNameInvalid);
+            }
+
+            _courseDal.Add(course);
+        return new SuccessResult(Messages.CourseAdded);
         }
     }
 }
