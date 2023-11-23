@@ -14,5 +14,11 @@ namespace Business.Constants
         public static string MaintenanceTime = "Sistem bakımda";
         public static string CategoryAdded = "Kategori eklendi";
         public static string InstructorAdded = "Eğitmen eklendi";
+        public static string CategoryUpdated = "Kategori güncellendi";
+        public static string CategoryDeleted = "Kategori silindi";
+        public static string CoursesDeleted = "Kurs silindi";
+        public static string CoursesUpdated= "Kurs güncellendi";
+        internal static string InstructorDeleted = "Eğitmen silindi";
+        internal static string InstructorUpdated = "Eğitmen güncellendi";
     }
 }

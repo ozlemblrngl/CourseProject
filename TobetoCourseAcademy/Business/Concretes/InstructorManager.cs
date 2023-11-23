@@ -36,5 +36,16 @@ namespace Business.Concretes
            _instructorDal.Add(instructor);
             return new SuccessResult(Messages.InstructorAdded);
         }
+
+        public IResult Delete(Instructor instructor)
+        {
+            _instructorDal.Delete(instructor);
+            return new SuccessResult(Messages.InstructorDeleted);
+        }
+        public IResult Update(Instructor instructor)
+        {
+            _instructorDal.Update(instructor);
+            return new SuccessResult(Messages.InstructorUpdated);
+        }
     }
 }

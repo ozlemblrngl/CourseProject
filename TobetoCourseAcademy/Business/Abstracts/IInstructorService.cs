@@ -13,6 +13,8 @@ namespace Business.Abstracts
         public IDataResult<List<Instructor>> GetAll();
         public IDataResult<List<Instructor>> GetByInstructorId(int id);
         public IResult Add(Instructor instructor);
+        public IResult Update(Instructor instructor);
+        public IResult Delete(Instructor instructor);
 
     }
 }
